@@ -349,7 +349,11 @@ export function MarriageAffidavitForm() {
                       setDateOfMarriage(e.target.value);
                       clearError("dateOfMarriage");
                     }}
-                    className={cn("date-input-end w-full", inputClass, errors.dateOfMarriage && errorInputClass)}
+                    className={cn(
+                      "date-input-end w-full",
+                      inputClass,
+                      errors.dateOfMarriage && errorInputClass
+                    )}
                   />
                   {errors.dateOfMarriage && (
                     <p className="text-sm text-red-600">{errors.dateOfMarriage}</p>

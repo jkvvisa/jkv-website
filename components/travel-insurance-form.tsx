@@ -331,7 +331,7 @@ export function TravelInsuranceForm() {
             <span className="block text-sm font-bold text-[#1C2B3A]">
               Number of applicants
             </span>
-            <div className="flex w-full max-w-full items-center justify-center gap-2 sm:max-w-[180px] sm:justify-start">
+            <div className="flex w-full max-w-full items-center justify-start gap-2 sm:max-w-[180px]">
               <Button
                 type="button"
                 variant="outline"
