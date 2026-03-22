@@ -32,7 +32,7 @@ export function Footer() {
       <div className="container pl-8 pr-2 py-8 lg:pr-4">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1 flex flex-col items-center gap-0 leading-none">
-            <Link href="/" className="flex justify-center p-0 [&_img]:block [&_img]:align-top">
+            <Link href="/" prefetch className="flex justify-center p-0 [&_img]:block [&_img]:align-top">
               <Image
                 src="/jkv-visaxpress-logo.png"
                 alt="JKV VisaXpress"
@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className={subtextClass}>
+                  <Link href={link.href} prefetch className={subtextClass}>
                     {link.label}
                   </Link>
                 </li>
@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="mt-5 space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className={subtextClass}>
+                  <Link href={link.href} prefetch className={subtextClass}>
                     {link.label}
                   </Link>
                 </li>

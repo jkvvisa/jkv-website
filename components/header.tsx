@@ -27,7 +27,7 @@ export function Header({
         className="container flex h-20 items-center justify-between max-w-4xl py-2"
         aria-label="Main navigation"
       >
-        <Link href="/" className="flex items-center">
+        <Link href="/" prefetch className="flex items-center">
           <Image
             src="/New%20Logo.jpg"
             alt="JKV VisaXpress"
@@ -40,12 +40,14 @@ export function Header({
         <div className="flex items-center gap-6">
           <Link
             href="/about"
+            prefetch
             className="text-sm font-medium text-foreground/90 hover:text-foreground"
           >
             About Us
           </Link>
           <Link
             href="/contact"
+            prefetch
             className="text-sm font-medium text-foreground/90 hover:text-foreground"
           >
             Contact Us
@@ -54,6 +56,7 @@ export function Header({
             <Button asChild>
               <Link
                 href={applyNowHref}
+                prefetch={!applyNowHref.includes("#")}
                 onClick={(e) => {
                   const id = applyNowHref.includes("#") ? applyNowHref.split("#")[1] : "";
                   const el = id ? document.getElementById(id) : null;
