@@ -218,14 +218,14 @@ export function MarriageAffidavitForm() {
   const errorInputClass = "border-red-500 focus-visible:ring-red-500";
 
   return (
-    <Card className="w-full max-w-xl border-0">
-      <CardHeader>
+    <Card className="w-full max-w-xl border-0 bg-transparent shadow-none md:bg-card md:shadow-sm">
+      <CardHeader className="p-0 md:p-6">
         <h3 className="font-semibold">Marriage Affidavit</h3>
         <p className="text-sm text-muted-foreground">
           Fill out the form and our experts will contact you within 24 hours to finalize the documentation.
         </p>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0 md:p-6 md:pt-0">
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Husband Details */}
           <div className="space-y-4 rounded-lg border border-gray-200 bg-gray-50/50 p-4">
@@ -349,7 +349,7 @@ export function MarriageAffidavitForm() {
                       setDateOfMarriage(e.target.value);
                       clearError("dateOfMarriage");
                     }}
-                    className={cn(inputClass, errors.dateOfMarriage && errorInputClass)}
+                    className={cn("date-input-end w-full", inputClass, errors.dateOfMarriage && errorInputClass)}
                   />
                   {errors.dateOfMarriage && (
                     <p className="text-sm text-red-600">{errors.dateOfMarriage}</p>

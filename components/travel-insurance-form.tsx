@@ -236,8 +236,8 @@ export function TravelInsuranceForm() {
       </CardHeader>
       <CardContent className="p-0 md:p-6 md:pt-0">
         <form className="space-y-4" onSubmit={handleGetQuote}>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="min-w-0 space-y-2">
               <label htmlFor="name" className="block text-sm font-bold text-[#1C2B3A]">
                 Full Name
               </label>
@@ -248,7 +248,7 @@ export function TravelInsuranceForm() {
                 aria-label="Full name"
                 aria-invalid={!!errors.name}
                 className={cn(
-                  "bg-gray-100/70 border-gray-200/80",
+                  "w-full bg-gray-100/70 border-gray-200/80",
                   errors.name && "border-red-500 focus-visible:ring-red-500"
                 )}
                 onBlur={() => clearError("name")}
@@ -257,7 +257,7 @@ export function TravelInsuranceForm() {
                 <p className="text-sm text-red-600">{errors.name}</p>
               )}
             </div>
-            <div className="space-y-2">
+            <div className="min-w-0 space-y-2">
               <label htmlFor="email" className="block text-sm font-bold text-[#1C2B3A]">
                 Email Address
               </label>
@@ -269,7 +269,7 @@ export function TravelInsuranceForm() {
                 aria-label="Email address"
                 aria-invalid={!!errors.email}
                 className={cn(
-                  "bg-gray-100/70 border-gray-200/80",
+                  "w-full bg-gray-100/70 border-gray-200/80",
                   errors.email && "border-red-500 focus-visible:ring-red-500"
                 )}
                 onBlur={() => clearError("email")}
@@ -279,8 +279,8 @@ export function TravelInsuranceForm() {
               )}
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="min-w-0 space-y-2">
               <label htmlFor="phone" className="block text-sm font-bold text-[#1C2B3A]">
                 Phone Number
               </label>
@@ -299,7 +299,7 @@ export function TravelInsuranceForm() {
                 <p className="text-sm text-red-600">{errors.phone}</p>
               )}
             </div>
-            <div className="space-y-2">
+            <div className="min-w-0 space-y-2">
               <label htmlFor="service" className="block text-sm font-bold text-[#1C2B3A]">
                 Service Required
               </label>
@@ -310,7 +310,7 @@ export function TravelInsuranceForm() {
                   if (v !== PAGE_SLUG) router.push(`/services/${v}`);
                 }}
               >
-                <SelectTrigger id="service" className="bg-gray-100/70 border-gray-200/80">
+                <SelectTrigger id="service" className="w-full bg-gray-100/70 border-gray-200/80">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
@@ -331,7 +331,7 @@ export function TravelInsuranceForm() {
             <span className="block text-sm font-bold text-[#1C2B3A]">
               Number of applicants
             </span>
-            <div className="flex max-w-[180px] items-center gap-2">
+            <div className="flex w-full max-w-full items-center justify-center gap-2 sm:max-w-[180px] sm:justify-start">
               <Button
                 type="button"
                 variant="outline"
@@ -368,9 +368,9 @@ export function TravelInsuranceForm() {
               {applicants.map((app, i) => (
                 <div
                   key={i}
-                  className="flex flex-wrap gap-3 rounded-lg border border-gray-200 bg-gray-50/50 p-4"
+                  className="flex flex-col gap-3 rounded-lg border border-gray-200 bg-gray-50/50 p-4 sm:flex-row sm:flex-wrap"
                 >
-                  <div className="flex-1 min-w-[140px] space-y-1">
+                  <div className="min-w-0 w-full flex-1 space-y-1 sm:min-w-[140px]">
                     <label
                       htmlFor={`applicant-${i}-name`}
                       className="block text-xs font-medium text-[#6B7280]"
@@ -383,7 +383,7 @@ export function TravelInsuranceForm() {
                       value={app.name}
                       onChange={(e) => updateApplicant(i, "name", e.target.value)}
                       className={cn(
-                        "bg-white border-gray-200/80",
+                        "w-full bg-white border-gray-200/80",
                         errors[`applicant-${i}-name`] && "border-red-500"
                       )}
                       onBlur={() => clearError(`applicant-${i}-name`)}
@@ -392,7 +392,7 @@ export function TravelInsuranceForm() {
                       <p className="text-xs text-red-600">{errors[`applicant-${i}-name`]}</p>
                     )}
                   </div>
-                  <div className="w-24 space-y-1">
+                  <div className="w-full space-y-1 sm:w-24 sm:shrink-0">
                     <label
                       htmlFor={`applicant-${i}-age`}
                       className="block text-xs font-medium text-[#6B7280]"
@@ -408,7 +408,7 @@ export function TravelInsuranceForm() {
                       value={app.age}
                       onChange={(e) => updateApplicant(i, "age", e.target.value)}
                       className={cn(
-                        "bg-white border-gray-200/80",
+                        "w-full bg-white border-gray-200/80",
                         errors[`applicant-${i}-age`] && "border-red-500"
                       )}
                       onBlur={() => clearError(`applicant-${i}-age`)}
@@ -438,7 +438,7 @@ export function TravelInsuranceForm() {
                 aria-label="Insurance coverage"
                 aria-invalid={!!errors.coverage}
                 className={cn(
-                  "bg-gray-100/70 border-gray-200/80 max-w-[200px]",
+                  "w-full bg-gray-100/70 border-gray-200/80 sm:max-w-[200px]",
                   errors.coverage && "border-red-500 focus-visible:ring-red-500"
                 )}
               >
@@ -464,8 +464,8 @@ export function TravelInsuranceForm() {
             <p className="text-sm font-bold text-[#1C2B3A]">
               Travel Period (Insurance Coverage Dates)
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="space-y-1">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="min-w-0 space-y-1">
                 <label
                   htmlFor="travelFrom"
                   className="block text-xs font-medium text-[#6B7280]"
@@ -481,7 +481,7 @@ export function TravelInsuranceForm() {
                     clearError("travelFrom");
                   }}
                   className={cn(
-                    "bg-gray-100/70 border-gray-200/80 max-w-[180px]",
+                    "date-input-end w-full min-w-0 bg-gray-100/70 border-gray-200/80 sm:max-w-[180px]",
                     errors.travelFrom && "border-red-500"
                   )}
                 />
@@ -489,7 +489,7 @@ export function TravelInsuranceForm() {
                   <p className="text-sm text-red-600">{errors.travelFrom}</p>
                 )}
               </div>
-              <div className="space-y-1">
+              <div className="min-w-0 space-y-1">
                 <label
                   htmlFor="travelTo"
                   className="block text-xs font-medium text-[#6B7280]"
@@ -505,7 +505,7 @@ export function TravelInsuranceForm() {
                     clearError("travelTo");
                   }}
                   className={cn(
-                    "bg-gray-100/70 border-gray-200/80 max-w-[180px]",
+                    "date-input-end w-full min-w-0 bg-gray-100/70 border-gray-200/80 sm:max-w-[180px]",
                     errors.travelTo && "border-red-500"
                   )}
                 />
@@ -583,7 +583,7 @@ export function TravelInsuranceForm() {
                   </div>
                 )}
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {/* Original Price Card */}
                   <div className="flex flex-col rounded-xl border border-gray-200/80 bg-white p-5 shadow-sm">
                     <div className="flex items-center gap-2">

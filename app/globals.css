@@ -5,6 +5,37 @@
   .section-y {
     @apply py-16 md:py-20;
   }
+
+  /**
+   * Native <input type="date"> calendar icon: pin to trailing edge (default is awkward mid-field on mobile).
+   */
+  .date-input-end {
+    position: relative;
+    min-width: 0;
+    padding-inline-end: 2.5rem;
+  }
+
+  .date-input-end::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset-inline-end: 0.5rem;
+    top: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    cursor: pointer;
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+
+  .date-input-end::-moz-calendar-picker-indicator {
+    position: absolute;
+    inset-inline-end: 0.5rem;
+    top: 50%;
+    margin: 0;
+    cursor: pointer;
+    opacity: 1;
+    transform: translateY(-50%);
+  }
 }
 
 :root {

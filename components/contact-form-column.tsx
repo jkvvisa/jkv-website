@@ -27,6 +27,8 @@ interface ContactFormColumnProps {
   variant?: "default" | "contactPage";
   defaultService?: string;
   isRefundMode: boolean;
+  /** When false, form is always inline (e.g. dedicated contact page). When true (default), mobile uses modal like homepage. */
+  useMobileModal?: boolean;
 }
 
 export function ContactFormColumn({
@@ -34,12 +36,19 @@ export function ContactFormColumn({
   variant = "default",
   defaultService,
   isRefundMode,
+  useMobileModal = true,
 }: ContactFormColumnProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const isDesktop = useIsDesktop();
 
   const buttonLabel = isRefundMode ? "Submit refund request" : "Start application";
   const modalTitle = isRefundMode ? "Request a refund" : "Get in touch";
+
+  if (!useMobileModal) {
+    return (
+      <ContactForm countries={countries} variant={variant} defaultService={defaultService} />
+    );
+  }
 
   if (isDesktop === null) {
     return (

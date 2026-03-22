@@ -30,6 +30,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ countries = [], variant = "default", defaultService }: ContactSectionProps) {
   const isRefundMode = defaultService === "refund-process";
+  const isContactPage = variant === "contactPage";
 
   return (
     <section
@@ -45,14 +46,23 @@ export function ContactSection({ countries = [], variant = "default", defaultSer
                 Request a Refund
               </h2>
               <p className="mt-2 min-w-0 text-left text-base font-normal text-[#637381]">
-                <span className="md:hidden">
-                  Tap <strong className="font-semibold text-[#212B36]">Submit refund request</strong> to open the
-                  form. Our team will review and respond within 24 hours.
-                </span>
-                <span className="hidden md:inline">
-                  Fill out the form below and our team will review your refund request and get back to you within
-                  24 hours.
-                </span>
+                {isContactPage ? (
+                  <span>
+                    Fill out the form below and our team will review your refund request and get back to you within
+                    24 hours.
+                  </span>
+                ) : (
+                  <>
+                    <span className="md:hidden">
+                      Tap <strong className="font-semibold text-[#212B36]">Submit refund request</strong> to open the
+                      form. Our team will review and respond within 24 hours.
+                    </span>
+                    <span className="hidden md:inline">
+                      Fill out the form below and our team will review your refund request and get back to you within
+                      24 hours.
+                    </span>
+                  </>
+                )}
               </p>
               <div className="mt-8 space-y-4">
                 {REFUND_STEPS.map((item) => (
@@ -75,14 +85,23 @@ export function ContactSection({ countries = [], variant = "default", defaultSer
                   Ready to start your application?
                 </h2>
                 <p className="mt-2 min-w-0 text-left text-base font-normal text-[#637381]">
-                  <span className="md:hidden">
-                    Tap <strong className="font-semibold text-[#212B36]">Start application</strong> to open the
-                    form. Our visa experts will get in touch within 24 hours.
-                  </span>
-                  <span className="hidden md:inline">
-                    Fill out the form below and our visa experts will get in touch with you within 24 hours to
-                    guide you through the next steps.
-                  </span>
+                  {isContactPage ? (
+                    <span>
+                      Fill out the form below and our visa experts will get in touch with you within 24 hours to
+                      guide you through the next steps.
+                    </span>
+                  ) : (
+                    <>
+                      <span className="md:hidden">
+                        Tap <strong className="font-semibold text-[#212B36]">Start application</strong> to open the
+                        form. Our visa experts will get in touch within 24 hours.
+                      </span>
+                      <span className="hidden md:inline">
+                        Fill out the form below and our visa experts will get in touch with you within 24 hours to
+                        guide you through the next steps.
+                      </span>
+                    </>
+                  )}
                 </p>
               </div>
 
@@ -141,6 +160,7 @@ export function ContactSection({ countries = [], variant = "default", defaultSer
           variant={variant}
           defaultService={defaultService}
           isRefundMode={isRefundMode}
+          useMobileModal={variant !== "contactPage"}
         />
       </div>
     </section>

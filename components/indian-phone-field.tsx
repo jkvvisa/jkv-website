@@ -33,7 +33,7 @@ export function IndianPhoneField({
   const full = fullPhoneFromDigits(value);
 
   return (
-    <div className="flex gap-2">
+    <div className="flex w-full min-w-0 gap-2">
       <Input
         readOnly
         disabled

@@ -242,16 +242,33 @@ export function ContactForm({
   }
 
   return (
-    <Card className={cn("w-full max-w-xl border-0", hideHeader ? "py-4 shadow-none" : "py-8")}>
+    <Card
+      className={cn(
+        "w-full max-w-xl border-0",
+        variant === "contactPage" && "bg-transparent shadow-none",
+        variant === "contactPage"
+          ? hideHeader
+            ? "py-4"
+            : "py-0"
+          : hideHeader
+            ? "py-4 shadow-none"
+            : "py-8"
+      )}
+    >
       {!hideHeader && (
-        <CardHeader>
+        <CardHeader className={variant === "contactPage" ? "p-0 pb-4" : undefined}>
           <h3 className="font-semibold">Get in Touch</h3>
           <p className="text-sm text-muted-foreground">
             Fill out the form and our experts will contact you within 24 hours.
           </p>
         </CardHeader>
       )}
-      <CardContent className={hideHeader ? "pt-0" : undefined}>
+      <CardContent
+        className={cn(
+          variant === "contactPage" && "p-0",
+          hideHeader && "pt-0"
+        )}
+      >
         <form className="space-y-4" noValidate onSubmit={handleSubmit}>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
