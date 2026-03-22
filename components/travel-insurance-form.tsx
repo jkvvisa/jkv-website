@@ -227,14 +227,14 @@ export function TravelInsuranceForm() {
   }
 
   return (
-    <Card className="w-full max-w-xl border-0">
-      <CardHeader>
+    <Card className="w-full max-w-xl border-0 bg-transparent shadow-none md:bg-card md:shadow-sm">
+      <CardHeader className="p-0 md:p-6">
         <h3 className="font-semibold">Get Travel Insurance Quote</h3>
         <p className="text-sm text-muted-foreground">
           Fill out the form and we&apos;ll provide you a quote immediately.
         </p>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0 md:p-6 md:pt-0">
         <form className="space-y-4" onSubmit={handleGetQuote}>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
@@ -331,31 +331,31 @@ export function TravelInsuranceForm() {
             <span className="block text-sm font-bold text-[#1C2B3A]">
               Number of applicants
             </span>
-            <div className="flex max-w-[200px] items-center gap-2">
+            <div className="flex max-w-[180px] items-center gap-2">
               <Button
                 type="button"
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 shrink-0 !rounded-full bg-gray-100/70 border-gray-200/80"
+                className="h-8 w-8 shrink-0 rounded-full border-primary bg-background text-primary hover:bg-primary/10 hover:text-primary [&_svg]:size-3.5 [&_svg]:text-primary"
                 disabled={numApplicants <= 1}
                 onClick={() => updateApplicantsCount(numApplicants - 1)}
                 aria-label="Decrease number of applicants"
               >
-                <Minus className="size-4" />
+                <Minus className="size-3.5" />
               </Button>
-              <span className="min-w-[2.5rem] text-center text-lg font-semibold tabular-nums text-[#1C2B3A]">
+              <span className="min-w-[2rem] text-center text-base font-semibold tabular-nums text-[#1C2B3A]">
                 {numApplicants}
               </span>
               <Button
                 type="button"
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 shrink-0 !rounded-full bg-gray-100/70 border-gray-200/80"
+                className="h-8 w-8 shrink-0 rounded-full border-primary bg-background text-primary hover:bg-primary/10 hover:text-primary [&_svg]:size-3.5 [&_svg]:text-primary"
                 disabled={numApplicants >= 10}
                 onClick={() => updateApplicantsCount(numApplicants + 1)}
                 aria-label="Increase number of applicants"
               >
-                <Plus className="size-4" />
+                <Plus className="size-3.5" />
               </Button>
             </div>
           </div>

@@ -29,25 +29,25 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-white">
-      <div className="container pl-8 pr-2 py-8 lg:pr-4">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:col-span-1 flex flex-col items-center gap-0 leading-none">
-            <Link href="/" prefetch className="flex justify-center p-0 [&_img]:block [&_img]:align-top">
+      <div className="container py-10 md:py-12">
+        <div className="grid grid-cols-1 gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-10">
+          <div className="flex min-w-0 flex-col items-start gap-4 leading-normal lg:col-span-1">
+            <Link href="/" prefetch className="block w-full max-w-[260px] [&_img]:block [&_img]:align-top">
               <Image
                 src="/jkv-visaxpress-logo.png"
                 alt="JKV VisaXpress"
                 width={400}
                 height={140}
-                className="block w-full max-w-[260px] h-auto object-contain align-top"
+                className="block h-auto w-full max-w-[260px] object-contain align-top"
               />
             </Link>
-            <p className="mt-0 pt-0 text-base font-normal text-[#6B7280] max-w-[260px] text-left">
+            <p className="max-w-md text-base font-normal leading-relaxed text-[#6B7280]">
               Leading the way in digital visa processing, we make global travel
               accessible, safe, and efficient for everyone.
             </p>
           </div>
 
-          <div className="text-base">
+          <div className="min-w-0 text-base">
             <h3 className="font-bold text-[#1A2B3D]">Services</h3>
             <ul className="mt-5 space-y-3">
               {serviceLinks.map((link) => (
@@ -60,7 +60,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="text-base">
+          <div className="min-w-0 text-base">
             <h3 className="font-bold text-[#1A2B3D]">Support</h3>
             <ul className="mt-5 space-y-3">
               {supportLinks.map((link) => (
@@ -73,16 +73,16 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="min-w-[280px] max-w-[400px] justify-self-start -ml-8 lg:-ml-12 text-base">
+          <div className="min-w-0 w-full max-w-md justify-self-start text-base md:max-w-none lg:max-w-[400px]">
             <h3 className="font-bold text-[#1A2B3D]">Contact Info</h3>
             <ul className="mt-5 space-y-3">
-              <li>
+              <li className="min-w-0">
                 <a
                   href="mailto:docs@jkvvisaxpress.com"
-                  className={`flex items-center gap-2 ${subtextClass}`}
+                  className={`flex items-start gap-2 break-words ${subtextClass}`}
                 >
-                  <Mail className="size-4 shrink-0 text-[#6B7280]" aria-hidden />
-                  docs@jkvvisaxpress.com
+                  <Mail className="mt-0.5 size-4 shrink-0 text-[#6B7280]" aria-hidden />
+                  <span className="min-w-0">docs@jkvvisaxpress.com</span>
                 </a>
               </li>
               <li>
@@ -94,10 +94,10 @@ export function Footer() {
                   +91 8147311150
                 </a>
               </li>
-              <li>
-                <span className={`flex items-start gap-2 text-base font-normal text-[#6B7280]`}>
-                  <MapPin className="size-4 shrink-0 mt-0.5 text-[#6B7280]" aria-hidden />
-                  <span className="min-w-0">
+              <li className="min-w-0">
+                <span className="flex items-start gap-2 text-base font-normal text-[#6B7280]">
+                  <MapPin className="mt-0.5 size-4 shrink-0 text-[#6B7280]" aria-hidden />
+                  <span className="min-w-0 break-words">
                     No 221, Sadha Shiva Mudaliar Road, Murphy Town, Halasuru, Bengaluru, 560008
                   </span>
                 </span>
@@ -106,11 +106,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-6 md:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-5 border-t border-gray-200 pt-8 text-center md:mt-12 md:flex-row md:gap-4 md:text-left">
           <p className="text-sm text-muted-foreground">
             © 2025 JKV VisaXpress. All rights reserved.
           </p>
-          <div className="flex gap-4">
+          <div className="flex shrink-0 gap-4">
             {socialLinks.map((link) => (
               <a
                 key={link.label}

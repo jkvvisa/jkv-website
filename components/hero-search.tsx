@@ -69,11 +69,11 @@ export function HeroSearch() {
   const displayDropdown = showDropdown && focused && query.length >= 3;
 
   return (
-    <div className="w-full max-w-3xl rounded-xl bg-white p-4 shadow-lg">
+    <div className="w-full max-w-3xl rounded-lg bg-white p-0 shadow-lg md:rounded-xl md:p-4">
       <div ref={wrapperRef} className="w-full">
         <div className="relative w-full">
           <Globe
-            className="absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground"
+            className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground md:left-4 md:size-5"
             aria-hidden
           />
           <Input
@@ -83,7 +83,7 @@ export function HeroSearch() {
             onFocus={() => setFocused(true)}
             onBlur={() => setTimeout(() => setFocused(false), 150)}
             placeholder="Destination Country"
-            className="h-14 border-0 bg-transparent pl-12 pr-10 text-base shadow-none focus-visible:ring-0"
+            className="h-11 border-0 bg-transparent px-0 py-0 pl-9 pr-7 text-sm shadow-none focus-visible:ring-0 md:h-14 md:py-0 md:pl-12 md:pr-10 md:text-base"
             aria-label="Destination country"
             aria-expanded={displayDropdown}
             aria-autocomplete="list"
@@ -91,7 +91,7 @@ export function HeroSearch() {
           />
           {loading && (
             <Loader2
-              className="absolute right-4 top-1/2 size-5 -translate-y-1/2 animate-spin text-muted-foreground"
+              className="absolute right-3 top-1/2 size-4 -translate-y-1/2 animate-spin text-muted-foreground md:right-4 md:size-5"
               aria-hidden
             />
           )}
@@ -99,7 +99,7 @@ export function HeroSearch() {
 
         {displayDropdown && (
           <ul
-            className="mt-2 max-h-52 w-full overflow-auto rounded-lg border border-gray-200 bg-white py-1 shadow-md"
+            className="mt-1.5 max-h-40 w-full overflow-auto rounded-md border border-gray-200 bg-white py-1 shadow-md md:mt-2 md:max-h-52 md:rounded-lg"
             role="listbox"
           >
             {results.length === 0 && !loading ? (

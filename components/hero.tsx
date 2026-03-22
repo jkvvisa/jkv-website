@@ -7,8 +7,8 @@ export function Hero() {
       className="bg-gray-100 overflow-visible"
       aria-labelledby="hero-title"
     >
-      <div className="container flex flex-col items-center gap-8 py-16 md:py-24">
-      <div className="flex max-w-3xl flex-col items-center gap-4 text-center text-gray-500">
+      <div className="container section-y flex flex-col items-center gap-6 md:gap-8">
+      <div className="flex max-w-3xl flex-col items-center gap-3 text-center text-gray-500 md:gap-4">
         <h1
           id="hero-title"
           className="animate-fade-in-up text-4xl font-bold tracking-tight md:text-5xl"
@@ -26,24 +26,26 @@ export function Hero() {
         <HeroSearch />
       </div>
 
-      <div className="animate-fade-in-up animation-delay-300 flex flex-wrap items-center justify-center gap-8 text-gray-500">
-        <div className="flex items-center gap-2">
-          <span className="flex size-6 items-center justify-center rounded-full bg-primary" aria-hidden>
-            <Check className="size-3.5 text-white stroke-[3]" />
-          </span>
-          <span className="text-sm font-medium">15K+ Visas Processed</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="flex size-6 items-center justify-center rounded-full bg-primary" aria-hidden>
-            <CircleCheckBig className="size-3.5 text-white stroke-[3]" />
-          </span>
-          <span className="text-sm font-medium">24h Priority Processing</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="flex size-6 items-center justify-center rounded-full bg-primary" aria-hidden>
-            <Headset className="size-3.5 text-white stroke-[3]" />
-          </span>
-          <span className="text-sm font-medium">Expert Assistance</span>
+      <div className="animate-fade-in-up animation-delay-300 w-full max-w-3xl">
+        <div className="flex flex-col gap-2.5 text-gray-500 md:flex-row md:flex-wrap md:items-center md:justify-center md:gap-8">
+          <div className="flex w-full items-center justify-start gap-2.5 md:w-auto md:justify-center">
+            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary md:size-6" aria-hidden>
+              <Check className="size-3 text-white stroke-[3] md:size-3.5" />
+            </span>
+            <span className="text-left text-xs font-medium leading-snug md:text-sm">15K+ Visas Processed</span>
+          </div>
+          <div className="flex w-full items-center justify-start gap-2.5 md:w-auto md:justify-center">
+            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary md:size-6" aria-hidden>
+              <CircleCheckBig className="size-3 text-white stroke-[3] md:size-3.5" />
+            </span>
+            <span className="text-left text-xs font-medium leading-snug md:text-sm">24h Priority Processing</span>
+          </div>
+          <div className="flex w-full items-center justify-start gap-2.5 md:w-auto md:justify-center">
+            <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary md:size-6" aria-hidden>
+              <Headset className="size-3 text-white stroke-[3] md:size-3.5" />
+            </span>
+            <span className="text-left text-xs font-medium leading-snug md:text-sm">Expert Assistance</span>
+          </div>
         </div>
       </div>
     </div>

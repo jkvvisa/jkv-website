@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { FileText, CalendarCheck, FileCheck, ArrowRight } from "lucide-react";
+import { FileText, CalendarCheck, FileCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { AnimateInView } from "@/components/animate-in-view";
 
@@ -9,28 +8,25 @@ const services = [
     title: "Document Validation",
     description:
       "Document Validation in compliance with Embassy checklist. Professional document checking to ensure your application meets all Embassy requirements the first time.",
-    href: "/services/document-validation",
   },
   {
     icon: CalendarCheck,
     title: "Secure Appointment",
     description:
       "Secure Visa Appointment. We handle the scheduling of your biometric and interview appointments at the embassy or VFS.",
-    href: "/services/secure-appointment",
   },
   {
     icon: FileText,
     title: "Complete Preparation",
     description:
       "Cover letter preparation with day wise itinerary and visa application form filling. Expertly crafted documents tailored to your travel plans.",
-    href: "/services/complete-preparation",
   },
 ];
 
 export function PremiumServices() {
   return (
     <section
-      className="bg-[#0b182c] py-16"
+      className="bg-[#0b182c] section-y"
       aria-labelledby="services-title"
     >
       <div className="container">
@@ -61,16 +57,9 @@ export function PremiumServices() {
                 <h3 className="mb-4 text-xl font-bold leading-tight text-[#f0f0f0]">
                   {service.title}
                 </h3>
-                <p className="mb-6 flex-1 text-base font-normal leading-[1.6] text-[#d4d6d9]">
+                <p className="flex-1 text-base font-normal leading-[1.6] text-[#d4d6d9]">
                   {service.description}
                 </p>
-                <Link
-                  href={service.href}
-                  className="inline-flex items-center gap-1 text-base font-normal text-[#fb923c] hover:underline"
-                >
-                  Learn more
-                  <ArrowRight className="size-4" aria-hidden />
-                </Link>
               </CardContent>
             </Card>
           ))}

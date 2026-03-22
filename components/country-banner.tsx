@@ -44,7 +44,7 @@ export function CountryBanner({ images, children }: CountryBannerProps) {
         </div>
       ))}
       <div className="absolute inset-0 z-10 bg-gradient-to-br from-[#0b182c]/85 via-[#1a2f45]/75 to-[#0b182c]/85" />
-      <div className="container relative z-20 flex h-full flex-col justify-center py-16">
+      <div className="container relative z-20 flex h-full flex-col justify-center section-y">
         {children}
       </div>
     </section>

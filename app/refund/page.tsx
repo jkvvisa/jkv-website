@@ -17,7 +17,7 @@ export default function RefundPage() {
       <Header />
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] py-16">
+        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] section-y">
           <div className="container">
             <AnimateInView animation="fade-in-up">
               <nav className="mb-6 flex items-center gap-2 text-sm text-gray-400">
@@ -38,7 +38,7 @@ export default function RefundPage() {
         </section>
 
         {/* Content */}
-        <section className="container py-16">
+        <section className="container section-y">
           <div className="space-y-12">
             {/* Intro */}
             <AnimateInView animation="fade-in-up">

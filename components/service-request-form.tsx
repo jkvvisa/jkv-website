@@ -214,18 +214,20 @@ export function ServiceRequestForm({
   return (
     <Card
       className={cn(
-        "w-full bg-white",
+        "w-full",
         !fullWidth && "max-w-xl",
-        standaloneCard ? "border border-gray-200 shadow-sm" : "border-0"
+        standaloneCard
+          ? "border-0 bg-transparent shadow-none md:border md:border-gray-200 md:bg-white md:shadow-sm"
+          : "border-0 bg-white"
       )}
     >
-      <CardHeader>
+      <CardHeader className={standaloneCard ? "p-0 md:p-6" : undefined}>
         <h3 className="font-semibold">Request {serviceTitle}</h3>
         <p className="text-sm text-muted-foreground">
           Fill out the form and our experts will contact you within 24 hours.
         </p>
       </CardHeader>
-      <CardContent className={standaloneCard ? "pt-2" : undefined}>
+      <CardContent className={standaloneCard ? "p-0 md:p-6 md:pt-2" : undefined}>
         <form className={cn("space-y-4", standaloneCard && "space-y-6")} onSubmit={handleSubmit}>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">

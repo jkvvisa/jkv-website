@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Consistent vertical padding for stacked sections site-wide */
+@layer components {
+  .section-y {
+    @apply py-16 md:py-20;
+  }
+}
+
 :root {
   --background: hsl(0 0% 100%);
   --foreground: hsl(222 47% 11%);

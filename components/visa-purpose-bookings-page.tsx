@@ -127,7 +127,7 @@ export function VisaPurposeBookingsPage() {
   return (
     <div className="space-y-0">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0b182c] py-16 md:py-24">
+      <section className="relative overflow-hidden bg-[#0b182c] section-y">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(251,149,81,0.08)_0%,transparent_50%)]" />
         <div className="container relative">
           <div>
@@ -155,7 +155,7 @@ export function VisaPurposeBookingsPage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" ref={pricingRef} className="bg-[#F4F6F8] py-16">
+      <section id="pricing" ref={pricingRef} className="bg-[#F4F6F8] section-y">
         <div className="container">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-[#1C2B3A] md:text-3xl">
@@ -257,7 +257,7 @@ export function VisaPurposeBookingsPage() {
       </section>
 
       {/* Our Specialized Services */}
-      <section className="border-b border-gray-200 bg-white py-16">
+      <section className="border-b border-gray-200 bg-white section-y">
         <div className="container">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-[#1C2B3A] md:text-3xl">
@@ -282,7 +282,7 @@ export function VisaPurposeBookingsPage() {
       </section>
 
       {/* FAQs */}
-      <section className="bg-white py-16">
+      <section className="bg-white section-y">
         <div className="container">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-[#1C2B3A] md:text-3xl">
@@ -324,7 +324,7 @@ export function VisaPurposeBookingsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-primary py-16">
+      <section className="bg-primary section-y">
         <div className="container">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-white md:text-3xl">
@@ -333,22 +333,27 @@ export function VisaPurposeBookingsPage() {
             <p className="mt-4 text-primary-foreground/90">
               Let our specialists guide you to the perfect itinerary package for your specific visa application.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="rounded-lg bg-white text-primary hover:bg-gray-100"
+            <div className="mx-auto mt-8 flex w-full max-w-md flex-col gap-4 md:max-w-none md:flex-row md:flex-wrap md:justify-center md:gap-4">
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="w-full rounded-lg bg-white text-primary hover:bg-gray-100 md:w-auto"
+              >
+                <a
+                  href="tel:+918147311150"
+                  className="w-full md:w-auto"
+                  aria-label="Call +91 8147311150"
                 >
                   <Phone className="mr-2 h-4 w-4" />
                   Call an Agent
-                </Button>
-              </Link>
-              <Link href="/contact">
+                </a>
+              </Button>
+              <Link href="/contact" className="block w-full md:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-lg border-2 border-white bg-transparent text-white hover:bg-white/10"
+                  className="w-full rounded-lg border-2 border-white bg-transparent text-white hover:bg-white/10 md:w-auto"
                 >
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Chat with an Expert
@@ -360,7 +365,7 @@ export function VisaPurposeBookingsPage() {
       </section>
 
       {/* Contact form */}
-      <section id="contact-form" ref={contactFormRef} className="border-t border-gray-200 bg-[#F8F9FA] py-16">
+      <section id="contact-form" ref={contactFormRef} className="border-t border-gray-200 bg-[#F8F9FA] section-y">
         <div className="container">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-start">
             <ServiceRequestSteps

@@ -16,7 +16,7 @@ const features = [
 export function HowWeAreDifferent() {
   return (
     <section
-      className="bg-[#F4F6F8] py-16"
+      className="bg-[#F4F6F8] section-y"
       aria-labelledby="how-different-title"
     >
       <div className="container">

@@ -24,7 +24,7 @@ export default function TermsPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main>
-        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] py-16">
+        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] section-y">
           <div className="container">
             <AnimateInView animation="fade-in-up">
               <nav className="mb-6 flex items-center gap-2 text-sm text-gray-400">
@@ -44,7 +44,7 @@ export default function TermsPage() {
           </div>
         </section>
 
-        <section className="container py-16">
+        <section className="container section-y">
           <AnimateInView animation="fade-in-up">
             <p className="text-center text-sm font-medium text-[#1F2937]">On this page</p>
             <p className="mt-3 flex flex-wrap justify-center gap-x-2 gap-y-1 text-sm text-primary">

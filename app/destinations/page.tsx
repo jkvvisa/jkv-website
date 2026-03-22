@@ -12,7 +12,7 @@ export default async function DestinationsPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main>
-        <section className="container py-16">
+        <section className="container section-y">
           <h1 className="mb-2 text-3xl font-bold text-[#1F2937] md:text-4xl">
             All Destinations
           </h1>

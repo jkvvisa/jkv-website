@@ -27,7 +27,7 @@ export async function ApplicationProcess() {
 
   return (
     <section
-      className="container py-16"
+      className="container section-y"
       aria-label="Application process"
     >
       <div className="grid gap-12 lg:grid-cols-2 lg:items-center">

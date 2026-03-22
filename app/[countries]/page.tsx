@@ -102,7 +102,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
         </CountryBanner>
 
         {/* Visa Information */}
-        <section className="container py-16">
+        <section className="container section-y">
           <AnimateInView animation="fade-in-up">
           <h2 className="mb-8 flex items-center gap-3">
             <Image
@@ -158,7 +158,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
         </section>
 
         {/* Top Hotspot Destinations */}
-        <section className="bg-gray-50 py-16">
+        <section className="bg-gray-50 section-y">
           <div className="container">
             <AnimateInView animation="fade-in-up">
               <h2 className="mb-4 text-center text-3xl font-bold text-[#1F2937] md:text-4xl">
@@ -201,7 +201,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
         </section>
 
         {/* Documents Required */}
-        <section className="bg-gray-100 py-16">
+        <section className="bg-gray-100 section-y">
           <div className="container">
             <div className="rounded-2xl bg-white p-8 shadow-sm">
               <h2 className="mb-8 flex items-center gap-3">
@@ -243,7 +243,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
         <CountryFAQ faqs={getCountryFAQs(data.name)} countryName={data.name} />
 
         {/* Visa Fees Breakdown */}
-        <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20">
+        <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white section-y">
           <div className="container">
             <AnimateInView animation="fade-in-up">
               <div className="mx-auto max-w-2xl">

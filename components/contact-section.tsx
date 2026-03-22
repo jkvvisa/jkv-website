@@ -1,5 +1,5 @@
 import { CheckCircle, Shield, Clock, DollarSign, FileText, Search, RotateCcw } from "lucide-react";
-import { ContactForm } from "./contact-form";
+import { ContactFormColumn } from "./contact-form-column";
 import type { CountryVisaData } from "@/lib/country-data";
 
 const REFUND_STEPS = [
@@ -34,18 +34,25 @@ export function ContactSection({ countries = [], variant = "default", defaultSer
   return (
     <section
       id="contact"
-      className="bg-[#F4F6F8] py-16 scroll-mt-24"
+      className="bg-[#F4F6F8] section-y scroll-mt-24"
       aria-labelledby="contact-title"
     >
       <div className="container grid gap-12 lg:grid-cols-2 lg:items-stretch">
         <div className="flex h-full min-h-0 flex-col">
           {isRefundMode ? (
             <>
-              <h2 id="contact-title" className="text-2xl font-bold leading-tight text-[#212B36] text-justify md:text-3xl">
+              <h2 id="contact-title" className="text-left text-2xl font-bold leading-tight text-[#212B36] md:text-3xl">
                 Request a Refund
               </h2>
-              <p className="mt-2 min-w-0 text-base font-normal text-[#637381] text-justify">
-                Fill out the form below and our team will review your refund request and get back to you within 24 hours.
+              <p className="mt-2 min-w-0 text-left text-base font-normal text-[#637381]">
+                <span className="md:hidden">
+                  Tap <strong className="font-semibold text-[#212B36]">Submit refund request</strong> to open the
+                  form. Our team will review and respond within 24 hours.
+                </span>
+                <span className="hidden md:inline">
+                  Fill out the form below and our team will review your refund request and get back to you within
+                  24 hours.
+                </span>
               </p>
               <div className="mt-8 space-y-4">
                 {REFUND_STEPS.map((item) => (
@@ -63,13 +70,19 @@ export function ContactSection({ countries = [], variant = "default", defaultSer
             </>
           ) : (
             <>
-              <div className="grid w-fit">
-                <h2 id="contact-title" className="text-2xl font-bold leading-tight text-[#212B36] text-justify md:text-3xl">
+              <div className="min-w-0 max-w-full">
+                <h2 id="contact-title" className="text-left text-2xl font-bold leading-tight text-[#212B36] md:text-3xl">
                   Ready to start your application?
                 </h2>
-                <p className="mt-2 min-w-0 text-base font-normal text-[#637381] text-justify">
-                  Fill out the form below and our visa experts will get in touch with
-                  you within 24 hours to guide you through the next steps.
+                <p className="mt-2 min-w-0 text-left text-base font-normal text-[#637381]">
+                  <span className="md:hidden">
+                    Tap <strong className="font-semibold text-[#212B36]">Start application</strong> to open the
+                    form. Our visa experts will get in touch within 24 hours.
+                  </span>
+                  <span className="hidden md:inline">
+                    Fill out the form below and our visa experts will get in touch with you within 24 hours to
+                    guide you through the next steps.
+                  </span>
                 </p>
               </div>
 
@@ -123,7 +136,12 @@ export function ContactSection({ countries = [], variant = "default", defaultSer
           )}
         </div>
 
-        <ContactForm countries={countries} variant={variant} defaultService={defaultService} />
+        <ContactFormColumn
+          countries={countries}
+          variant={variant}
+          defaultService={defaultService}
+          isRefundMode={isRefundMode}
+        />
       </div>
     </section>
   );

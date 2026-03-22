@@ -17,7 +17,7 @@ export default function AboutPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main>
-        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] py-20">
+        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] section-y">
           <div className="container">
             <AnimateInView animation="fade-in-up">
               <h1 className="text-4xl font-bold text-white md:text-5xl">
@@ -31,7 +31,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container py-16">
+        <section className="container section-y">
           <AnimateInView animation="fade-in-up">
             <h2 className="text-center text-2xl font-bold text-[#212B36] md:text-3xl">
               Our Story
@@ -53,7 +53,7 @@ export default function AboutPage() {
           </AnimateInView>
         </section>
 
-        <section className="bg-[#F4F6F8] py-16">
+        <section className="bg-[#F4F6F8] section-y">
           <div className="container">
             <AnimateInView animation="fade-in-up">
               <h2 className="mb-10 text-center text-2xl font-bold text-[#212B36] md:text-3xl">

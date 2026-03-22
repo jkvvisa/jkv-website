@@ -61,7 +61,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main>
-        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] py-20">
+        <section className="bg-gradient-to-br from-[#0b182c] via-[#1a2f45] to-[#0b182c] section-y">
           <div className="container">
             <h1 className="text-4xl font-bold text-white md:text-5xl">
               {service.title}
@@ -73,7 +73,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         </section>
 
-        <section className={`py-16 ${hasStepsLayout ? "border-t border-gray-200 bg-[#F8F9FA]" : ""}`}>
+        <section className={`section-y ${hasStepsLayout ? "border-t border-gray-200 bg-[#F8F9FA]" : ""}`}>
           <div className="container">
             {normalizedSlug === "travel-insurance" ? (
               <div className="mx-auto max-w-2xl">

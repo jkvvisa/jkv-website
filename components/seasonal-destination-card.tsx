@@ -4,8 +4,14 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { CountryVisaData } from "@/lib/country-data";
+import {
+  EMBLA_AUTOPLAY_INTERVAL_MS,
+  EmblaCarouselDots,
+  EmblaCarouselPrevNext,
+  useEmblaAutoplay,
+} from "@/components/embla-carousel-ui";
 
 function getSeasonName() {
   const month = new Date().getMonth();
@@ -23,7 +29,10 @@ const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop";
 
 export function SeasonalDestinationCard({ countries }: SeasonalDestinationCardProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: countries.length > 1,
+    align: "start",
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [seasonName, setSeasonName] = useState("Season");
 
@@ -48,11 +57,11 @@ export function SeasonalDestinationCard({ countries }: SeasonalDestinationCardPr
     };
   }, [emblaApi, onSelect]);
 
-  useEffect(() => {
-    if (!emblaApi || countries.length <= 1) return;
-    const interval = setInterval(() => emblaApi.scrollNext(), 4000);
-    return () => clearInterval(interval);
-  }, [emblaApi, countries.length]);
+  useEmblaAutoplay(
+    emblaApi,
+    EMBLA_AUTOPLAY_INTERVAL_MS,
+    countries.length > 1
+  );
 
   if (!countries.length) return null;
 
@@ -107,41 +116,21 @@ export function SeasonalDestinationCard({ countries }: SeasonalDestinationCardPr
           </div>
         </div>
 
-        {countries.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={scrollPrev}
-              className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white transition hover:bg-black/60 md:p-2"
-              aria-label="Previous country"
-            >
-              <ChevronLeft className="size-4 md:size-5" />
-            </button>
-            <button
-              type="button"
-              onClick={scrollNext}
-              className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white transition hover:bg-black/60 md:p-2"
-              aria-label="Next country"
-            >
-              <ChevronRight className="size-4 md:size-5" />
-            </button>
-            <div className="absolute bottom-2 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 md:bottom-3">
-              {countries.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => emblaApi?.scrollTo(i)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === selectedIndex
-                      ? "w-4 bg-white"
-                      : "w-1.5 bg-white/60 hover:bg-white/80"
-                  }`}
-                  aria-label={`Go to country ${i + 1}`}
-                />
-              ))}
-            </div>
-          </>
-        )}
+        <EmblaCarouselPrevNext
+          show={countries.length > 1}
+          onPrev={scrollPrev}
+          onNext={scrollNext}
+          prevAriaLabel="Previous country"
+          nextAriaLabel="Next country"
+        />
+        <EmblaCarouselDots
+          count={countries.length}
+          selectedIndex={selectedIndex}
+          onDotClick={(i) => emblaApi?.scrollTo(i)}
+          variant="overlay"
+          layout="overlay"
+          ariaLabelPrefix="Go to country"
+        />
       </div>
 
       <div className="p-3 md:p-4">

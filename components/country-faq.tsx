@@ -19,7 +19,7 @@ export function CountryFAQ({ faqs, countryName }: CountryFAQProps) {
 
   return (
     <section
-      className="bg-white py-16"
+      className="bg-white section-y"
       aria-labelledby="faq-title"
     >
       <div className="container">

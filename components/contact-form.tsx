@@ -30,9 +30,18 @@ interface ContactFormProps {
   variant?: "default" | "contactPage";
   /** Preselected service when variant is contactPage (e.g. "refund-process") */
   defaultService?: string;
+  /** Hide card title/description when embedded (e.g. modal supplies its own header) */
+  hideHeader?: boolean;
 }
 
-export function ContactForm({ countries: initialCountries = [], defaultCountryId, onSuccess, variant = "default", defaultService }: ContactFormProps) {
+export function ContactForm({
+  countries: initialCountries = [],
+  defaultCountryId,
+  onSuccess,
+  variant = "default",
+  defaultService,
+  hideHeader = false,
+}: ContactFormProps) {
   const [countries, setCountries] = useState<CountryVisaData[]>(initialCountries);
   const [contactServices, setContactServices] = useState<ServiceOption[]>([]);
   const [visaPurposes, setVisaPurposes] = useState<LabelValueOption[]>([]);
@@ -233,14 +242,16 @@ export function ContactForm({ countries: initialCountries = [], defaultCountryId
   }
 
   return (
-    <Card className="w-full max-w-xl border-0 py-8">
-      <CardHeader>
-        <h3 className="font-semibold">Get in Touch</h3>
-        <p className="text-sm text-muted-foreground">
-          Fill out the form and our experts will contact you within 24 hours.
-        </p>
-      </CardHeader>
-      <CardContent>
+    <Card className={cn("w-full max-w-xl border-0", hideHeader ? "py-4 shadow-none" : "py-8")}>
+      {!hideHeader && (
+        <CardHeader>
+          <h3 className="font-semibold">Get in Touch</h3>
+          <p className="text-sm text-muted-foreground">
+            Fill out the form and our experts will contact you within 24 hours.
+          </p>
+        </CardHeader>
+      )}
+      <CardContent className={hideHeader ? "pt-0" : undefined}>
         <form className="space-y-4" noValidate onSubmit={handleSubmit}>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
@@ -297,7 +308,7 @@ export function ContactForm({ countries: initialCountries = [], defaultCountryId
               )}
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <label
                 htmlFor="phone"

@@ -50,7 +50,7 @@ const reasons = [
 export function WhyChooseUs() {
   return (
     <section
-      className="bg-white py-16"
+      className="bg-white section-y"
       aria-labelledby="why-choose-us-title"
     >
       <div className="container">
